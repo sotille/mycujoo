@@ -14,18 +14,6 @@ public class SqlField {
         this.nullable = nullable;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public boolean isNullable() {
-        return nullable;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
