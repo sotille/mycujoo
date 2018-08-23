@@ -25,4 +25,16 @@ public class SqlField {
     public boolean isNullable() {
         return nullable;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(name).append(" ").append(type);
+
+        if (!nullable)
+            sb.append(" NOT NULL");
+
+        return sb.toString();
+    }
 }

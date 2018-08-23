@@ -80,14 +80,8 @@ public class JsonRecursiveParser {
                     Iterator<?> keys = jsonObject.keys();
                     while (keys.hasNext()) {
                         String key = (String) keys.next();
-                        if (!(jsonObject.get(key) instanceof JSONArray) && !(jsonObject.get(key) instanceof JSONObject))
-                            System.out.println(key + "=" + jsonObject.get(key));
-                        else{
-                            if(jsonObject.get(key) instanceof JSONArray)
-                                loopThroughJson(new JSONArray(jsonObject.get(key).toString()), tableToCreate);
-                            if(jsonObject.get(key) instanceof JSONObject)
-                                loopThroughJson(new JSONObject(jsonObject.get(key).toString()), tableToCreate);
-                        }
+                        if ((jsonObject.get(key) instanceof JSONArray) && (jsonObject.get(key) instanceof JSONObject))
+                            loopThroughJson(jsonObject.get(key), tableToCreate);
                     }
                 }
             }

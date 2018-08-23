@@ -6,3 +6,4 @@ gen
 /build/
 /output.sql
 /.gradle/
+/.gradle/4.4/

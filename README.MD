@@ -52,7 +52,7 @@ Go to the folder of the project and type
 * [Google Gson](https://maven.apache.org/) - Serialize and parse JsonObjects
 * [Android Json](https://rometools.github.io/rome/) - Manipulation of JsonObjects and JsonArrays
 
-## Authors
+## Author
 
 * **Felipe Sotille** 
 

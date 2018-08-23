@@ -33,10 +33,10 @@ public class SqlClassBuilder
 
         for(SqlField field:fields){
             if (firstField){
-                sb.append("\n").append(field.getName()).append(" ").append(field.getType());
+                sb.append("\n").append(field.toString());
                 firstField = false;
             }else{
-                sb.append("\n").append(",").append(field.getName()).append(" ").append(field.getType());
+                sb.append("\n").append(",").append(field.toString());
             }
         }
 
