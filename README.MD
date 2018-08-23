@@ -11,13 +11,13 @@ development and testing purposes.
 ### Prerequisites
 
 * Java 8
-* Gradle
+* Gradle 4.5 or above
 * Internet Connection
-* git (optional)
+* Git (optional)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step  that tell you how to get this project up and running
 
 Clone the github repository
 
@@ -48,9 +48,10 @@ Go to the folder of the project and type
 
 ## Built With
 
-* [Gradle](http://www.dropwizard.io/1.0.2/docs/) - Dependency Management
-* [Google Gson](https://maven.apache.org/) - Serialize and parse JsonObjects
-* [Android Json](https://rometools.github.io/rome/) - Manipulation of JsonObjects and JsonArrays
+* [Gradle](https://gradle.org/releases//) - Dependency Management
+* [Google Gson](https://mvnrepository.com/artifact/com.google.code.gson/gson/2.8.5) - Serialize and parse JsonObjects
+* [Android Json](https://mvnrepository.com/artifact/com.vaadin.external.google/android-json/0.0.20131108.vaadin1) - Manipulation of JsonObjects and JsonArrays
+* [Junit 4.12](https://mvnrepository.com/artifact/junit/junit/4.12) - Unit Tests
 
 ## Author
 
