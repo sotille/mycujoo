@@ -15,24 +15,21 @@ development and testing purposes.
 * Internet Connection
 * git (optional)
 
-
-```
-https://github.com/sotille/mycujoo
-```
-
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Clone the github repository
 
 ```
-clone the github repository
 git clone https://github.com/sotille/mycujoo.git 
-or download and extract
+```
+
+Or download and extract
+
+```
 https://github.com/sotille/mycujoo/archive/master.zip
 ```
-
 ## Running
  
 Go to the folder of the project and type
@@ -40,7 +37,7 @@ Go to the folder of the project and type
 /opt/javaprojects/mycujoo$gradle clean build run
 ```
 
-After running the application will create a output.sql file based on json schemas consumed.
+After running the application will create a output.sql file on root project folder based on json schemas consumed.
 
 ## Running the tests
 
