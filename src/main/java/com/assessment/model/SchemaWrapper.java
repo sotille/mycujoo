@@ -2,37 +2,13 @@ package com.assessment.model;
 
 public class SchemaWrapper {
 
-    String subject;
+    private String subject;
 
-    int version;
+    private int version;
 
-    long id;
+    private long id;
 
-    String schema;
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    private String schema;
 
     public String getSchema() {
         return schema;

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class JsonRecursiveParser {
 
-    private List<SqlClassBuilder> sqlClassBuilderList = new ArrayList<>();
+    private final List<SqlClassBuilder> sqlClassBuilderList = new ArrayList<>();
 
     public List<SqlClassBuilder> convertSchemasToSqlBuilder(List<SchemaWrapper> schemaWrappers){
         for (SchemaWrapper schemaWrapper : schemaWrappers){

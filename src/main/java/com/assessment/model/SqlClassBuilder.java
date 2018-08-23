@@ -5,11 +5,11 @@ import java.util.List;
 
 public class SqlClassBuilder
 {
-    private String name;
+    private final String name;
 
-    private List<SqlField> fields;
+    private final List<SqlField> fields;
 
-    private List<SqlEnumBuilder> classEnums;
+    private final List<SqlEnumBuilder> classEnums;
 
     public SqlClassBuilder(String name) {
         this.name = name;

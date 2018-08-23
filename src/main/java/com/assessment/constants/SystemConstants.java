@@ -5,7 +5,7 @@ public enum SystemConstants {
     SUBJECTS_URL("https://s3-eu-west-1.amazonaws.com/mycujoo-assignments/be-assignment/subjects.json"),
     SCHEMAS_URL("https://s3-eu-west-1.amazonaws.com/mycujoo-assignments/be-assignment/");
 
-    String value;
+    final String value;
 
     SystemConstants(String value) {
         this.value = value;

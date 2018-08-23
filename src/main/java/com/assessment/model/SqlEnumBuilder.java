@@ -2,11 +2,11 @@ package com.assessment.model;
 
 public class SqlEnumBuilder
 {
-    private String name;
+    private final String name;
 
-    private String[] symbols;
+    private final String[] symbols;
 
-    public SqlEnumBuilder(String name, String[] symbols)
+    public SqlEnumBuilder(final String name, final String[] symbols)
     {
         this.name = name;
         this.symbols = symbols;

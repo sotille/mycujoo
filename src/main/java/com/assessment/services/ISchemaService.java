@@ -1,6 +1,8 @@
 package com.assessment.services;
 
+import com.assessment.model.SchemaWrapper;
+
 public interface ISchemaService {
 
-    String fetchData(String subject);
+    SchemaWrapper getSchema(String subject);
 }

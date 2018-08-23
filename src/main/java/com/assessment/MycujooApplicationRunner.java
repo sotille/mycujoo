@@ -1,7 +1,5 @@
 package com.assessment;
 
-import com.assessment.controller.SchemaController;
-import com.assessment.controller.SubjectsController;
 import com.assessment.model.SchemaWrapper;
 import com.assessment.model.SqlClassBuilder;
 import com.assessment.services.impl.SchemaService;
@@ -16,13 +14,14 @@ public class MycujooApplicationRunner {
 
     public static void main(String[] args) {
 
-        SubjectsController subscriptionController = new SubjectsController(new SubjectsService());
-        SchemaController schemaController = new SchemaController(new SchemaService());
+        SubjectsService subjectsService = new SubjectsService();
+
+        SchemaService schemaService = new SchemaService();
 
         List<SchemaWrapper> schemaWrappers = new ArrayList<>();
 
-        for (String subject : subscriptionController.getSubjects()) {
-            schemaWrappers.add(schemaController.getSchema(subject));
+        for (String subject : subjectsService.getSubjects()) {
+            schemaWrappers.add(schemaService.getSchema(subject));
         }
 
         List<SqlClassBuilder> sqlClassBuilders = new JsonRecursiveParser().convertSchemasToSqlBuilder(schemaWrappers);

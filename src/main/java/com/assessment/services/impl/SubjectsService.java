@@ -3,13 +3,26 @@ package com.assessment.services.impl;
 import com.assessment.constants.SystemConstants;
 import com.assessment.services.BaseUrlConsumerService;
 import com.assessment.services.ISubjectsService;
+import com.google.gson.Gson;
 
 public class SubjectsService extends BaseUrlConsumerService implements ISubjectsService {
 
-    public String fetchData()  {
-        String subjects = readFromBuffer(
+    private String fetchData()  {
+        return readFromBuffer(
                 getUrl(SystemConstants.SUBJECTS_URL.getValue()));
-
-        return subjects;
     }
+
+    private String[] parseSubjectsJson(String fetchedJson){
+
+        if (fetchedJson == null){
+            return null;
+        }
+
+        return  new Gson().fromJson(fetchedJson,String[].class);
+    }
+
+    public String[] getSubjects(){
+        return parseSubjectsJson(fetchData());
+    }
+
 }
