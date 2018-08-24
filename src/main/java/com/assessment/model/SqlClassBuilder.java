@@ -7,6 +7,10 @@ public class SqlClassBuilder
 {
     private final String name;
 
+    public String getName() {
+        return name;
+    }
+
     private final List<SqlField> fields;
 
     private final List<SqlEnumBuilder> classEnums;

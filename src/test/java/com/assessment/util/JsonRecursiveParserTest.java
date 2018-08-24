@@ -1,6 +1,7 @@
 package com.assessment.util;
 
 import com.assessment.model.SchemaWrapper;
+import com.assessment.model.SqlClassBuilder;
 import com.assessment.services.ISchemaService;
 import com.assessment.services.ISubjectsService;
 import com.assessment.services.impl.SchemaService;
@@ -21,7 +22,6 @@ public class JsonRecursiveParserTest {
     @Test
     public void recursiveJsonTest() throws JSONException {
         ISubjectsService subjectsService = new SubjectsService();
-
         ISchemaService schemaService = new SchemaService();
 
         List<SchemaWrapper> schemaWrappers = new ArrayList<>();
@@ -30,7 +30,12 @@ public class JsonRecursiveParserTest {
             schemaWrappers.add(schemaService.getSchema(subject));
         }
 
-        assertEquals(new JsonRecursiveParser().convertSchemasToSqlBuilder(schemaWrappers).size(),subjects.length);
+        List<SqlClassBuilder> sqlClassBuilders = new JsonRecursiveParser().convertSchemasToSqlBuilder(schemaWrappers);
+        assertEquals(sqlClassBuilders.size(),subjects.length);
 
+        if (!sqlClassBuilders.isEmpty())
+            for (int i=0;i<subjects.length;i++){
+                assertEquals(schemaWrappers.get(i).getSubject(),subjects[i]);
+            }
     }
 }
