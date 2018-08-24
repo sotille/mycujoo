@@ -16,21 +16,16 @@ public class JsonRecursiveParser {
 
     private final List<SqlClassBuilder> sqlClassBuilderList = new ArrayList<>();
 
-    public List<SqlClassBuilder> convertSchemasToSqlBuilder(List<SchemaWrapper> schemaWrappers){
+    public List<SqlClassBuilder> convertSchemasToSqlBuilder(List<SchemaWrapper> schemaWrappers) throws JSONException {
         for (SchemaWrapper schemaWrapper : schemaWrappers){
             JSONObject rootElement;
-            try {
-                rootElement = new JSONObject(schemaWrapper.getSchema());
-                createTableElement(rootElement);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            rootElement = new JSONObject(schemaWrapper.getSchema());
+            createTableElement(rootElement);
         }
         return this.sqlClassBuilderList;
     }
 
-    private void createTableElement(JSONObject jsonTable){
-        try {
+    private void createTableElement(JSONObject jsonTable) throws JSONException {
             JSONArray fields = jsonTable.getJSONArray("fields");
 
             SqlClassBuilder tableToCreate = new SqlClassBuilder(jsonTable.get("name").toString());
@@ -38,12 +33,9 @@ public class JsonRecursiveParser {
             loopThroughJson(fields,tableToCreate);
 
             sqlClassBuilderList.add(tableToCreate);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
-    private static void loopThroughJson(Object input, SqlClassBuilder tableToCreate) throws JSONException {
+    private void loopThroughJson(Object input, SqlClassBuilder tableToCreate) throws JSONException {
         if (input instanceof JSONArray) {
             for (int i = 0; i < ((JSONArray) input).length(); i++) {
                 if (((JSONArray) input).get(i) instanceof JSONObject){
@@ -54,7 +46,7 @@ public class JsonRecursiveParser {
         }
     }
 
-    private static void verifyJsonField(JSONObject jsonObject, SqlClassBuilder tableToCreate) throws JSONException {
+    private void verifyJsonField(JSONObject jsonObject, SqlClassBuilder tableToCreate) throws JSONException {
         if (isField(jsonObject)){
             if (!(jsonObject.get("type") instanceof  JSONArray)){
                 tableToCreate.getFields().add(getJsonAsField(jsonObject));
