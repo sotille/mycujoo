@@ -8,6 +8,10 @@ import com.google.gson.Gson;
 
 public class SchemaService extends BaseUrlConsumerService implements ISchemaService {
 
+    public SchemaWrapper getSchema(String subject){
+        return parseSchemasJson(fetchData(subject));
+    }
+
     private String fetchData(String subjectName)  {
         return readFromBuffer(
                 getUrl(SystemConstants.SCHEMAS_URL.getValue()+subjectName+".json"));
@@ -20,10 +24,5 @@ public class SchemaService extends BaseUrlConsumerService implements ISchemaServ
         }
 
         return new Gson().fromJson(fetchedJson,SchemaWrapper.class);
-    }
-
-
-    public SchemaWrapper getSchema(String subject){
-        return parseSchemasJson(fetchData(subject));
     }
 }
